@@ -31,7 +31,7 @@ private:
     threadCercle * m_threadCercle;
     QTimer *m_timer;
     int PosX, PosY, Rayon, Temps;
-    bool Commence;
+    bool Commence, bPremier;
 };
 
 #endif // CLL12_ULTIMATECLICK_CLIENT_H

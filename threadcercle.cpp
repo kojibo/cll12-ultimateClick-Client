@@ -39,7 +39,7 @@ void threadCercle::run()
             {
                 if(baReception[0]==2)
                 {
-                    emit(siConnecte("Vous avez gagné!"));
+                    emit(siConnecte("Vous gagnez!"));
                 }
                 else
                 {
