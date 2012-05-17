@@ -25,6 +25,7 @@ cll12_ultimateClick_client::cll12_ultimateClick_client(QWidget *parent) :
     ui->lblMessage->setText("Utilisez le bouton droit de la souris.");
     Temps = 0;
     bPremier = true;
+    Fin = "";
 }
 
 cll12_ultimateClick_client::~cll12_ultimateClick_client()
@@ -63,8 +64,6 @@ void cll12_ultimateClick_client::mousePressEvent(QMouseEvent * e)
             {
                 emit(siReussit());
             }
-            ui->label_2->setText(QString("%1").arg(X));
-            ui->label_3->setText(QString("%1").arg(Y));
         }
     }
 }
@@ -77,7 +76,6 @@ void cll12_ultimateClick_client::slNouvCercle(int X, int Y, int r)
     Commence = true;
     ui->lblMessage->setVisible(false);
     repaint();
-    ui->label_4->setText(QString("%1").arg(X));
     if(bPremier == true)
     {
         m_timer->start();
@@ -96,7 +94,9 @@ void cll12_ultimateClick_client::slConnecte(QString mess)
 {
    ui->lblMessage->setVisible(true);
    if(mess!="Fin.")
+   {
        ui->lblMessage->setText(mess);
+   }
    if(mess=="Une erreur s'est produite."|| mess=="Fin." || mess=="Vous avez gagné!" || mess=="Vous avez perdu...")
    {
        m_threadCercle->exit();
@@ -106,10 +106,13 @@ void cll12_ultimateClick_client::slConnecte(QString mess)
        Rayon = 0;
        ui->btnOuvrir->setEnabled(true);
        ui->txtIPServeur->setEnabled(true);
+       ui->lblPoints->setText("0");
        repaint();
        Temps = 0;
        ui->lblTemps->setText("00:00:00:00");
        bPremier = true;
+       if(ui->lblMessage->text()=="Cliquez!")
+           ui->lblMessage->setText("");
    }
    else
    {

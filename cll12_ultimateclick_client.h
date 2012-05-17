@@ -32,6 +32,7 @@ private:
     QTimer *m_timer;
     int PosX, PosY, Rayon, Temps;
     bool Commence, bPremier;
+    QString Fin;
 };
 
 #endif // CLL12_ULTIMATECLICK_CLIENT_H
