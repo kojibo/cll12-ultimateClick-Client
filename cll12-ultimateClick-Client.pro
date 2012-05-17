@@ -4,15 +4,17 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network
 
 TARGET = cll12-ultimateClick-Client
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        cll12_ultimateclick_client.cpp
+        cll12_ultimateclick_client.cpp \
+    threadcercle.cpp
 
-HEADERS  += cll12_ultimateclick_client.h
+HEADERS  += cll12_ultimateclick_client.h \
+    threadcercle.h
 
 FORMS    += cll12_ultimateclick_client.ui
